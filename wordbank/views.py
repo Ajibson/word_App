@@ -94,3 +94,8 @@ def confirm_word(request, pk=None):
     
     words_to_confirm = words.objects.filter(status = False)
     return render(request, 'confirm_list.html', {'words':words_to_confirm})
+
+def clear(request):
+    words_db = words.objects.all()
+    words_db.delete()
+    return render(request, 'base.html')
