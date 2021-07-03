@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container my-5  ">
+    <div class="row  my-4">
+        <form class="form" method = 'POST' action="{% url 'get-meaning' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label h3 mb-3">Word Input</label>
+                <input type="text" class="form-control"  placeholder="Enter your word" name = 'word'>
+            </div>
+
+            <div class="mb-3 col-12">
+            <button type="submit" class="form-control btn btn-primary">Search Word</button>
+            </div>
+            {% if word.meaning %}
+            <div class="mb-3 mt-5">
+            <label for="exampleFormControlTextarea1" class="form-label h3">Meaning</label>
+            <p>{{word.meaning}}</p>
+            </div>
+            
+            
+            <div class="mb-3 mt-5">
+            <label  class="form-label h3">Examples</label>
+            {% if word.example_1 %}
+            <p>{{word.example_1}}</p>
+            {% endif %}
+            {% if word.example_2 %}
+            <p>{{word.example_2}}</p>
+            {% endif %}
+            {% if word.example_3 %}
+            <p>{{word.example_3}}</p>
+            {% endif %}
+            {% if word.example_4 %}
+            <p>{{word.example_4}}</p>
+            {% endif %}
+            {% if word.example_5 %}
+            <p>{{word.example_5}}</p>
+            {% endif %}
+            {% if word.example_6 %}
+            <p>{{word.example_6}}</p>
+            {% if word.example_7 %}
+            <p>{{word.example_7}}</p>
+            {% endif %}
+            {% if word.example_8 %}
+            <p>{{word.example_8}}</p>
+            {% endif %}
+            {% if word.example_9 %}
+            <p>{{word.example_9}}</p>
+            {% endif %}
+            {% endif %}
+            </div>
+
+            {% else %}
+            <h4>{{gotten_word}} not found, Did you mean <a href="{% url 'suggest' suggested_word %}" style="text-decoration:underline;">{{suggested_word}}</a>?</h4>
+            {% endif %}
+        </form>
+
+        
+    </div>
+</div>
+
+
+
+
+{% endblock %}
