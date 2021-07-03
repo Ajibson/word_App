@@ -9,7 +9,7 @@
             {% csrf_token %}
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label h3 mb-3">Word Input</label>
-                <input type="text" class="form-control"  placeholder="Enter your word" name = 'word'>
+                <input type="text" class="form-control"  placeholder="Enter your word" name = 'word' value="{{gotten_word}}">
             </div>
 
             <div class="mb-3 col-12">

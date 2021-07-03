@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% if user.is_superuser %}
+<div class="container">
+    <div class="row mt-5">
+        {% for word in words %}
+
+        <p>{{ forloop.counter }} <strong>{{word.word}}</strong></p>
+
+        
+
+        <p>Meaning : {{word.meaning}}</p>
+
+        <div class="mb-3 mt-5">
+            <label  class="form-label h3">Examples</label>
+
+            {% if word.example_1 %}
+            <p>{{word.example_1}}</p>
+            {% endif %}
+            {% if word.example_2 %}
+            <p>{{word.example_2}}</p>
+            {% endif %}
+            {% if word.example_3 %}
+            <p>{{word.example_3}}</p>
+            {% endif %}
+            {% if word.example_4 %}
+            <p>{{word.example_4}}</p>
+            {% endif %}
+            {% if word.example_5 %}
+            <p>{{word.example_5}}</p>
+            {% endif %}
+            {% if word.example_6 %}
+            <p>{{word.example_6}}</p>
+            {% if word.example_7 %}
+            <p>{{word.example_7}}</p>
+            {% endif %}
+            {% if word.example_8 %}
+            <p>{{word.example_8}}</p>
+            {% endif %}
+            {% if word.example_9 %}
+            <p>{{word.example_9}}</p>
+            {% endif %}
+            {% endif %}
+            </div>
+            <form class="form" method = 'POST' action="{% url 'confirm-words' word.pk %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <button type="submit" class="form-control btn btn-primary">Confirm Word</button>
+                </div>
+            </form>
+            
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

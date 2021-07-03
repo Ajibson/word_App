@@ -16,6 +16,8 @@ class words(models.Model):
     example_9 = models.TextField(blank=True)
     example_10 = models.TextField(blank=True)
 
+    status = models.BooleanField(default=True)
+
     def __str__(self):
         return self.word
 

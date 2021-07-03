@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+
+<div class="container my-5 ">
+    <div class="row  my-4">
+        <form class="form" method = 'POST' action="{% url 'new-word' %}">
+            {% csrf_token %}
+            <h3 class="text-center mb-5">Submit word for confirmation</h3>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label h3 mb-3">Word Input</label>
+                <input type="text" class="form-control"  placeholder="Enter your word" name = 'word' required>
+            </div>
+
+            <div class="mb-3 mt-5">
+                <label for="exampleFormControlTextarea1" class="form-label">Meaning</label>
+                <textarea class="form-control mb-5" id="exampleFormControlTextarea1" rows="3" name = 'meaning' required></textarea>
+            </div>
+
+            <div class="mb-3 mt-5">
+                <label for="exampleFormControlTextarea1" class="form-label">Example One</label>
+                <textarea class="form-control mb-5" id="exampleFormControlTextarea1" rows="2" name = 'example_1' required></textarea>
+            </div>
+
+            <div class="mb-3 mt-5">
+                <label for="exampleFormControlTextarea1" class="form-label">Example Two</label>
+                <textarea class="form-control mb-5" id="exampleFormControlTextarea1" rows="2" name = 'example_2' required></textarea>
+            </div>
+            <div class="mb-3 mt-5">
+                <label for="exampleFormControlTextarea1" class="form-label">Example Three</label>
+                <textarea class="form-control mb-5" id="exampleFormControlTextarea1" rows="2" name = 'example_3'></textarea>
+            </div>
+            <div class="mb-3 mt-5">
+                <label for="exampleFormControlTextarea1" class="form-label">Example Four</label>
+                <textarea class="form-control mb-5" id="exampleFormControlTextarea1" rows="2" name = 'example_4'></textarea>
+            </div>
+            <div class="mb-3 mt-5">
+                <label for="exampleFormControlTextarea1" class="form-label">Example Five    </label>
+                <textarea class="form-control mb-5" id="exampleFormControlTextarea1" rows="2" name = 'example_5'></textarea>
+            </div>
+            <input type="submit" class="form-control btn-primary" value="Submit Word">
+            
+
+            
+        </form>
+        
+    </div>
+</div>
+
+
+
+{% endblock %}
