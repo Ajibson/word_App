@@ -100,3 +100,10 @@ def clear(request):
     words_db = words.objects.filter(id__in=list(words.objects.values_list('pk', flat=True).order_by('-pk')[:6000])).delete()
     #words_db.delete()
     return render(request, 'base.html')
+
+def space(request):
+    for i in words.objects.all():
+        i_name = i.word.rstrip()
+        i.word = i_name
+        i.save()
+    return render(request, 'base.html')

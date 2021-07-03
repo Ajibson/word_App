@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import homepage,get_word,suggested_word_meaning,new_word,confirm_word,create_words,clear
+from .views import homepage,get_word,suggested_word_meaning,new_word,confirm_word,create_words,clear,space
 
 urlpatterns = [
     path('create-words', create_words, name = 'create_words'),
@@ -10,7 +10,8 @@ urlpatterns = [
     path("new-word", new_word, name = "new-word"),
     path("confirm-word/<int:pk>", confirm_word, name = 'confirm-words'),
     path("confirm-word", confirm_word, name = 'confirm-word'),
-    path('clear', clear)
+    path('clear', clear),
+    path('space', space)
     
     
 ]
