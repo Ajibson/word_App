@@ -96,6 +96,7 @@ def confirm_word(request, pk=None):
     return render(request, 'confirm_list.html', {'words':words_to_confirm})
 
 def clear(request):
-    words_db = words.objects.all().order_by('-pk')[:6000]
-    words_db.delete()
+    #words_db = words.objects.all().order_by('-pk')[:6000]
+    words_db = words.objects.filter(id__in=list(words.objects.values_list('pk', flat=True).order_by('-pk')[:6000])).delete()
+    #words_db.delete()
     return render(request, 'base.html')
