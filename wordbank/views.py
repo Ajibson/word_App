@@ -18,10 +18,11 @@ def create_words(request):
 
     for i in data:
         try:
-            save_data = words.objects.create(word = i['Word'], meaning = i['Meaning'], example_1 = i["Examples/0"],
-            example_2 = i["Examples/1"],example_3 = i["Examples/2"],example_4 = i["Examples/3"],example_5 = i["Examples/4"],
-            example_6 = i["Examples/5"],example_7 = i["Examples/6"],example_8 = i["Examples/7"],example_9 = i["Examples/8"],
-            example_10 = i["Examples/9"], ) 
+            if i['Word'] not in [i.word for i in words.objects.all()]:
+                save_data = words.objects.create(word = i['Word'], meaning = i['Meaning'], example_1 = i["Examples/0"],
+                example_2 = i["Examples/1"],example_3 = i["Examples/2"],example_4 = i["Examples/3"],example_5 = i["Examples/4"],
+                example_6 = i["Examples/5"],example_7 = i["Examples/6"],example_8 = i["Examples/7"],example_9 = i["Examples/8"],
+                example_10 = i["Examples/9"], ) 
         except:
             pass
 
