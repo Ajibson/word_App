@@ -1,1 +1,1 @@
-web: gunicorn wordapp.wsgi  --log-file -
+web: gunicorn wordapp.wsgi --timeout=60 --log-file -
