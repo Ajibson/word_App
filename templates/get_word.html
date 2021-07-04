@@ -54,7 +54,9 @@
             </div>
 
             {% else %}
-            <h4>{{gotten_word}} not found, Did you mean <a href="{% url 'suggest' suggested_word %}" style="text-decoration:underline;">{{suggested_word}}</a>?</h4>
+            <h4>{{gotten_word}} not found, Did you mean <a href="{% url 'suggest' suggested_word %}" style="text-decoration:underline;">{{suggested_word}}</a>? 
+            or help <a href="{% url 'new-word' %}" style="text-decoration:underline;">add word</a> to the database.
+            </h4>
             {% endif %}
         </form>
 
